@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Playfair Display", serif;
+  font-family: "Exo 2", sans-serif;
 }
 body {
   margin: 0;
@@ -98,19 +98,18 @@ body {
 }
 .card {
   background: transparent;
-  background-image: url("../img/game/shirt.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: rgba(50, 50, 50, 1);
   flex: 0 1 100px;
-  min-height: 160px;
-  font-size: 60px;
+  min-height: 100px;
+  outline: 1px solid rgba(220, 220, 220, 1);
+  outline-offset: -5px;
+  font-size: 48px;
   line-height: 1;
   color: transparent;
   transition: background-image 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .card.open {
-  background-image: none;
+  background: transparent;
   color: rgba(3, 3, 3, 1);
 }
 #start-game-over {

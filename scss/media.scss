@@ -45,16 +45,19 @@
   .game-wrapper-timer {
     font-size: 20px;
   }
+  #cards {
+    width: 320px;
+  }
   .card {
     flex: 0 1 80px;
-    min-height: 128px;
+    min-height: 80px;
   }
 }
 @media (max-width: 575.98px) {
   /*GAME*/
   .card {
     flex: 0 1 75px;
-    min-height: 120px;
+    min-height: 75px;
     font-size: 30px;
   }
 }
