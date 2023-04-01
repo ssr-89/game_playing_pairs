@@ -1,22 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+:root {
+  --white: rgba(200, 200, 200, 1);
+  --silver: rgba(192, 192, 192, 1);
+  --gray: rgba(128, 128, 128, 1);
+  --blue: rgba(0, 100, 150, 1);
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   font-family: "Exo 2", sans-serif;
 }
+
 body {
   margin: 0;
-  background-color: rgba(220, 220, 220, 1);
-  color: rgba(3, 3, 3, 1);
+  background-color: rgba(0, 0, 20, 1);
+  color: var(--white);
   overflow: hidden;
 }
+
 .btn {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
+
 .btn:disabled {
   cursor: default;
+  opacity: 0.5;
+}
+.input {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.input::placeholder {
+  color: var(--gray);
 }
 
 /*#game {}*/
@@ -24,6 +49,7 @@ body {
   margin: 0 auto;
   width: 100%;
 }
+
 .game-top {
   display: flex;
   justify-content: center;
@@ -33,38 +59,78 @@ body {
   height: 100vh;
   transition: margin 0.3s ease-in-out;
 }
+
 .game-top.up {
   margin-top: -100vh;
 }
+
 .game-top-title {
   margin: 0;
   margin-bottom: 35px;
   font-size: 60px;
   line-height: 1;
 }
+
 .game-top-text {
   margin: 0;
   margin-bottom: 30px;
   font-size: 1.5em;
 }
+
 .game-top-form {
   max-width: 500px;
 }
+
 .game-top-form-input {
+  margin-right: 10px;
   padding: 5px 10px;
   width: 350px;
   font-size: 20px;
   line-height: 1;
-  border: none;
+  border-bottom: 1px solid var(--gray);
+  color: var(--white);
 }
+
+.game-top-form-input::-moz-placeholder {
+  line-height: 1;
+}
+
 .game-top-form-input::placeholder {
   line-height: 1;
 }
+
 #start-game {
+  position: relative;
   padding: 5px 10px;
   font-size: 20px;
   line-height: 1;
+  color: var(--white);
 }
+#start-game span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+#start-game::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  background: transparent;
+  transition: background 0.3s ease-in-out;
+}
+#start-game:focus:not(:hover)::before {
+  background-color: var(--blue);
+}
+#start-game:disabled:hover span {
+  color: inherit;
+}
+#start-game:hover span {
+  color: var(--blue);
+}
+
 .game-wrapper {
   display: flex;
   justify-content: center;
@@ -74,6 +140,7 @@ body {
   width: 100%;
   height: 100vh;
 }
+
 .game-wrapper-title {
   margin: 0;
   font-size: 60px;
@@ -81,44 +148,84 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+
 .game-wrapper-title.show {
   opacity: 1;
   visibility: visible;
 }
-.game-wrapper-timer {
+.game-wrapper-text {
   margin: 0;
-  font-size: 36px;
   line-height: 1;
 }
+#game-wrapper-timer {
+  font-size: 20px;
+}
+#game-wrapper-text {
+  font-size: 36px;
+  opacity: 0;
+  visibility: hidden;
+}
+#game-wrapper-text.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 #cards {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   width: 400px;
 }
+
 .card {
   background: transparent;
-  background-color: rgba(50, 50, 50, 1);
+  background-color: rgb(50, 50, 50);
   flex: 0 1 100px;
   min-height: 100px;
-  outline: 1px solid rgba(220, 220, 220, 1);
-  outline-offset: -5px;
+  outline: 1px solid rgb(220, 220, 220);
   font-size: 48px;
   line-height: 1;
   color: transparent;
   transition: background-image 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+
 .card.open {
   background: transparent;
-  color: rgba(3, 3, 3, 1);
+  opacity: 1;
+  color: var(--white);
 }
+
 #start-game-over {
+  position: relative;
   padding: 5px 10px;
   font-size: 20px;
   line-height: 1;
   opacity: 0;
   visibility: hidden;
+  color: var(--white);
 }
+#start-game-over span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+#start-game-over::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  background: transparent;
+  transition: background 0.3s ease-in-out;
+}
+#start-game-over:focus:not(:hover)::before {
+  background-color: var(--blue);
+}
+#start-game-over:hover span {
+  color: var(--blue);
+}
+
 #start-game-over.show {
   opacity: 1;
   visibility: visible;

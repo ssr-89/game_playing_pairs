@@ -10,7 +10,8 @@
     const blockCards = document.getElementById('cards');
     const startGameBtnOver = document.getElementById('start-game-over');
     const time = document.getElementById('time');
-    const winText = document.getElementById('game-wrapper-title');
+    const winTitle = document.getElementById('game-wrapper-title');
+    const winText = document.getElementById('game-wrapper-text');
 
     let countDown = 60;
     let timer = null;
@@ -91,6 +92,7 @@
     }
 
     function startGame() {
+      winTitle.classList.remove('show');
       winText.classList.remove('show');
       startGameBtnOver.classList.remove('show');
       gameForm.addEventListener("submit", (e) => {
@@ -147,6 +149,7 @@
     startGame();
 
     function startGameOver() {
+      winTitle.classList.remove('show');
       winText.classList.remove('show');
       resetTimer();
       startGameBtnOver.classList.remove('show');
@@ -166,10 +169,12 @@
         return card.classList.contains('open');
       });
       if (openCards) {
+        winTitle.classList.add('show');
         winText.classList.add('show');
         startGameBtnOver.classList.add('show');
         resetTimer();
       } else {
+        winTitle.classList.remove('show');
         winText.classList.remove('show');
         startGameBtnOver.classList.remove('show');
       }

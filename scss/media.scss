@@ -17,7 +17,9 @@
   .game-top-text {
     margin-bottom: 20px;
     text-align: center;
-    font-size: 20px;
+  }
+  #game-wrapper-text {
+    font-size: 30px;
   }
   .game-top-form {
     display: flex;
@@ -42,7 +44,7 @@
     font-size: 42px;
     line-height: 1.5;
   }
-  .game-wrapper-timer {
+  .game-wrapper-text {
     font-size: 20px;
   }
   #cards {
@@ -58,6 +60,6 @@
   .card {
     flex: 0 1 75px;
     min-height: 75px;
-    font-size: 30px;
+    font-size: 40px;
   }
 }

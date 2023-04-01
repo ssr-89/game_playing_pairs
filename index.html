@@ -21,19 +21,26 @@
           Укажите чётное количество карточек от 4 до 16
         </p>
         <form id="game-form" class="game-top-form">
-          <input id="game-input" class="game-top-form-input" type="number" min="4" max="16" step="2" placeholder="Введите чётное число от 4 до 16">
-          <button id="start-game" class="game-top-form-btn btn" type="submit">Начать игру</button>
+          <input id="game-input" class="game-top-form-input input" type="number" min="4" max="16" step="2" placeholder="Введите чётное число от 4 до 16">
+          <button id="start-game" class="game-top-form-btn btn" type="submit">
+            <span>Начать игру</span>
+          </button>
         </form>
       </div>
       <div class="game-wrapper">
-        <p id="game-wrapper-title" class="game-wrapper-title">
-          Поздравляем!!! Вы выиграли!!!
+        <h2 id="game-wrapper-title" class="game-wrapper-title title">
+          Поздравляем!!!
+        </h2>
+        <p id="game-wrapper-text" class="game-wrapper-text">
+          Вы выиграли!
         </p>
-        <p class="game-wrapper-timer">
+        <p id="game-wrapper-timer" class="game-wrapper-text">
           Осталось: <span id="time"></span> сек.
         </p>
         <div id="cards" class="game-wrapper-cards game-cards"></div>
-        <button id="start-game-over" class="game-wrapper-btn btn">Сыграть ещё раз</button>
+        <button id="start-game-over" class="game-wrapper-btn btn">
+          <span>Сыграть ещё раз</span>
+        </button>
       </div>
     </div>
   </section>

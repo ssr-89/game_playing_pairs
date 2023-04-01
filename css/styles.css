@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+:root {
+  --white: rgba(200, 200, 200, 1);
+  --silver: rgba(192, 192, 192, 1);
+  --gray: rgba(128, 128, 128, 1);
+  --blue: rgba(0, 100, 150, 1);
+}
+
 *,
 *::before,
 *::after {
@@ -8,18 +15,40 @@
 
 body {
   margin: 0;
-  background-color: rgb(220, 220, 220);
-  color: rgb(3, 3, 3);
+  background-color: rgb(0, 0, 20);
+  color: var(--white);
   overflow: hidden;
 }
 
 .btn {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
 
 .btn:disabled {
   cursor: default;
+  opacity: 0.5;
+}
+
+.input {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.input::-moz-placeholder {
+  color: var(--gray);
+}
+
+.input::placeholder {
+  color: var(--gray);
 }
 
 /*#game {}*/
@@ -60,11 +89,13 @@ body {
 }
 
 .game-top-form-input {
+  margin-right: 10px;
   padding: 5px 10px;
   width: 350px;
   font-size: 20px;
   line-height: 1;
-  border: none;
+  border-bottom: 1px solid var(--gray);
+  color: var(--white);
 }
 
 .game-top-form-input::-moz-placeholder {
@@ -76,9 +107,40 @@ body {
 }
 
 #start-game {
+  position: relative;
   padding: 5px 10px;
   font-size: 20px;
   line-height: 1;
+  color: var(--white);
+}
+
+#start-game span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+#start-game::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  background: transparent;
+  transition: background 0.3s ease-in-out;
+}
+
+#start-game:focus:not(:hover)::before {
+  background-color: var(--blue);
+}
+
+#start-game:disabled:hover span {
+  color: inherit;
+}
+
+#start-game:hover span {
+  color: var(--blue);
 }
 
 .game-wrapper {
@@ -104,10 +166,24 @@ body {
   visibility: visible;
 }
 
-.game-wrapper-timer {
+.game-wrapper-text {
   margin: 0;
-  font-size: 36px;
   line-height: 1;
+}
+
+#game-wrapper-timer {
+  font-size: 20px;
+}
+
+#game-wrapper-text {
+  font-size: 36px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#game-wrapper-text.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 #cards {
@@ -123,7 +199,6 @@ body {
   flex: 0 1 100px;
   min-height: 100px;
   outline: 1px solid rgb(220, 220, 220);
-  outline-offset: -5px;
   font-size: 48px;
   line-height: 1;
   color: transparent;
@@ -132,15 +207,43 @@ body {
 
 .card.open {
   background: transparent;
-  color: rgb(3, 3, 3);
+  opacity: 1;
+  color: var(--white);
 }
 
 #start-game-over {
+  position: relative;
   padding: 5px 10px;
   font-size: 20px;
   line-height: 1;
   opacity: 0;
   visibility: hidden;
+  color: var(--white);
+}
+
+#start-game-over span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+#start-game-over::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  background: transparent;
+  transition: background 0.3s ease-in-out;
+}
+
+#start-game-over:focus:not(:hover)::before {
+  background-color: var(--blue);
+}
+
+#start-game-over:hover span {
+  color: var(--blue);
 }
 
 #start-game-over.show {
